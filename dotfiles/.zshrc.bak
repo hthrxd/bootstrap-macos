@@ -1,0 +1,18 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZINIT_HOME=~/.local/share/zinit
+source $ZINIT_HOME/zinit.git/zinit.zsh
+
+[[ -f ~/.zsh_plugins.txt ]] && while read -r plugin; do zinit light "$plugin"; done < ~/.zsh_plugins.txt
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+export PATH="$HOME/.volta/bin:$PATH"
+export EDITOR="code -w"
+
+[[ -f ~/.zsh_aliases.txt ]] && source ~/.zsh_aliases.txt
+[[ -f ~/.exports ]] && source ~/.exports

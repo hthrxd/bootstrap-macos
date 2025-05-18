@@ -1,0 +1,5 @@
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+romkatv/powerlevel10k
+junegunn/fzf
+rupa/z

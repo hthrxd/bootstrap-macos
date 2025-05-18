@@ -1,0 +1,14 @@
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+
+alias cy='npx cypress open'
+alias cy:run='npx cypress run'
+alias pw='npx playwright test'
+alias pw:init='npx playwright install && npx playwright codegen'
+
+alias reload='source ~/.zshrc'
+alias dev='cd ~/qa-dev'
+alias update='brew update && brew upgrade && brew cleanup'

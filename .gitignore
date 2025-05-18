@@ -1,1 +1,37 @@
+<<<<<<< HEAD
 .DS_Store
+=======
+# macOS system files
+.DS_Store
+.Trashes
+.Spotlight-V100
+
+# Zsh + terminal junk
+.zcompdump*
+.zsh_history
+.zsh_sessions/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Logs and temp
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node modules (just in case)
+node_modules/
+
+# QA project junk
+coverage/
+cypress/videos/
+cypress/screenshots/
+playwright-report/
+test-results/
+
+# Lockfiles (only if you want them ignored)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+>>>>>>> eb42fe9 (🧹 Add .gitignore for system, dev, and QA clutter)

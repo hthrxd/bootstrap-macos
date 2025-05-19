@@ -22,6 +22,12 @@ function cdf() {
   cd "$(osascript -e 'tell app \"Finder\" to POSIX path of (insertion location as alias)')"
 }
 
+# zoxide - smarter cd
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+  alias cd='z'  # override built-in cd with zoxide
+fi
+
 ################################################################################
 # 🖥️ System Utilities (macOS-specific)
 ################################################################################

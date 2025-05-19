@@ -115,6 +115,9 @@ alias gaa='git add --all'
 alias gst='git status'
 alias gcmsg='git commit -m'
 
+# Git shorthand
+alias gp='git push'
+
 # AWS
 alias asl='aws sso login'
 

@@ -1,5 +1,41 @@
+### 🌟 Core Experience
 zsh-users/zsh-autosuggestions
-zsh-users/zsh-syntax-highlighting
 romkatv/powerlevel10k
-junegunn/fzf
 rupa/z
+junegunn/fzf
+zdharma-continuum/zsh-diff-so-fancy
+Tarrasch/zsh-bd
+Tarrasch/zsh-autoenv
+
+### 🎨 Syntax Highlighting (choose one only)
+# zsh-users/zsh-syntax-highlighting
+zdharma-continuum/fast-syntax-highlighting
+
+### 🧰 Oh My Zsh Plugin Snippets
+zinit snippet OMZ::plugins/1password
+zinit snippet OMZ::plugins/alias-finder
+zinit snippet OMZ::plugins/aliases
+zinit snippet OMZ::plugins/autojump
+zinit snippet OMZ::plugins/aws
+zinit snippet OMZ::plugins/colored-man-pages
+zinit snippet OMZ::plugins/colorize
+zinit snippet OMZ::plugins/command-not-found
+zinit snippet OMZ::plugins/common-aliases
+zinit snippet OMZ::plugins/copypath
+zinit snippet OMZ::plugins/dircycle
+zinit snippet OMZ::plugins/dirhistory
+zinit snippet OMZ::plugins/fzf
+zinit snippet OMZ::plugins/gh
+zinit snippet OMZ::plugins/git
+zinit snippet OMZ::plugins/git-extras
+zinit snippet OMZ::plugins/git-flow-avh
+zinit snippet OMZ::plugins/history
+zinit snippet OMZ::plugins/iterm2
+zinit snippet OMZ::plugins/node
+zinit snippet OMZ::plugins/npm
+zinit snippet OMZ::plugins/nvm
+zinit snippet OMZ::plugins/vscode
+
+### 🧪 Optional QA/Dev Tooling
+zinit snippet OMZ::plugins/docker
+zinit snippet OMZ::plugins/httpie

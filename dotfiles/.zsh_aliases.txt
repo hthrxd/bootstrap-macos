@@ -1,14 +1,142 @@
-alias gs='git status'
-alias ga='git add .'
-alias gc='git commit -m'
-alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
+# ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+# ┃ 💅 Heather's Unified Aliases      ┃
+# ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
-alias cy='npx cypress open'
-alias cy:run='npx cypress run'
-alias pw='npx playwright test'
-alias pw:init='npx playwright install && npx playwright codegen'
+################################################################################
+# 📂 Navigation
+################################################################################
 
-alias reload='source ~/.zshrc'
-alias dev='cd ~/qa-dev'
-alias update='brew update && brew upgrade && brew cleanup'
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+alias -- -="cd -"
+alias ~="cd ~"
+
+alias d="cd ~/Dropbox"
+alias dl="cd ~/Downloads"
+alias dt="cd ~/Desktop"
+alias p="cd ~/development"
+
+function cdf() {
+  cd "$(osascript -e 'tell app \"Finder\" to POSIX path of (insertion location as alias)')"
+}
+
+################################################################################
+# 🖥️ System Utilities (macOS-specific)
+################################################################################
+
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
+
+alias airport='/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport'
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias lscleanup="/System/Library/.../lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
+alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
+alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes ~/.Trash /private/var/log/asl/*.asl; sqlite3 ~/Library/.../LSQuarantineEvent* 'delete from LSQuarantineEvent'"
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+alias spotoff="sudo mdutil -a -i off"
+alias spoton="sudo mdutil -a -i on"
+alias gatekeeperOff="sudo spctl --master-disable"
+alias gatekeeperOn="sudo spctl --master-enable"
+
+################################################################################
+# 🌐 Networking / IP / Debug
+################################################################################
+
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en0"
+alias ips="ifconfig -a | grep -oE 'inet6?\s[^\s]+' | awk '{print $2}'"
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+alias digga="dig +nocmd \"$1\" any +multiline +noall +answer"
+
+################################################################################
+# 🔒 Clipboard / Encoding
+################################################################################
+
+alias copy="tr -d '\n' | pbcopy"
+alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
+
+################################################################################
+# 🧪 Dev Tools
+################################################################################
+
+# npm & yarn
+alias run="npm run"
+alias rd="npm run dev"
+alias rs="npm run server"
+alias rw="npm run watch"
+alias rt="npm run test"
+alias rtw="npm run test:watch"
+
+alias ncu="npm-check -u"
+alias t=trash
+alias svgop="svgo --pretty --disable=mergePaths,convertShapeToPath --multipass"
+alias svgor="svgop --recursive"
+alias pub="np"
+alias patch="np patch"
+alias minor="np minor"
+alias major="np major"
+
+# Gulp
+alias gulp="npx gulp"
+
+################################################################################
+# 🌀 Git
+################################################################################
+
+alias aic='aicommits'
+alias gpb='git checkout -'
+alias gitmt='git mergetool'
+alias shl='git show HEAD~'
+alias swb='git switch'
+alias lg='log --pretty=format:"%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]" --decorate --date=short'
+alias mergetest='!f(){ git merge --no-commit --no-ff "$1"; git merge --abort; echo "Merge aborted"; }; f'
+alias oldest-ancestor='git merge-base --all "${1:-master}" "${2:-HEAD}"'
+alias whoops='git commit --amend --no-edit'
+alias reload=". ~/.zshrc"
+alias s="source ~/.zshrc"
+
+# Git shorthand aliases
+alias gaa='git add --all'
+alias gst='git status'
+alias gcmsg='git commit -m'
+
+# AWS
+alias asl='aws sso login'
+
+# diff-so-fancy
+alias dsf="git-dsf"
+
+################################################################################
+# 🛠 System Utilities & Misc
+################################################################################
+
+alias sudo='sudo ' # Allow alias chaining after sudo
+alias week='date +%V'
+alias map="xargs -n1"
+alias path='echo -e ${PATH//:/\\n}'
+
+# Ports
+alias openedports="sudo netstat -plunt"
+
+# Kill Chrome tabs to free memory
+alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | awk '{print $2}' | xargs kill"
+
+# Merge PDF files (macOS only)
+alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
+
+# Hex dumps
+command -v md5sum >/dev/null || alias md5sum="md5"
+command -v sha1sum >/dev/null || alias sha1sum="shasum"
+command -v hd >/dev/null || alias hd="hexdump -C"
+
+# PlistBuddy for raw plist editing
+alias plistbuddy="/usr/libexec/PlistBuddy"
